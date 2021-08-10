@@ -28,6 +28,29 @@ function App() {
     const [total, setTotal] = useState(0)
     const [text, setText] = useState("")
     const [progress, setProgress] = useState()
+    const [dayBarProgress,setDayBarProgress]= useState()
+    const [dayBarText,setDayBarText]= useState()
+    const [incidencesBarText,setIncidencesBarText] =useState()
+    const [incidencesBarProgress,setIncidencesBarProgress] =useState()
+    const [payRollBarText,setPayRollBarText] =useState()
+    const [payRollBarProgress,setPayRollBarProgress] =useState()
+    const [taxesBarText,setTaxesBarText] =useState()
+    const [taxesBarProgress,setTaxesBarProgress] =useState()
+    const [taxDeductionBarText,setTaxDeductionBarText] =useState()
+    const [taxDeductionBarProgress,setTaxDeductionBarProgress] =useState()
+    const [absencesBarText,setAbsencesBarText] =useState()
+    const [absencesBarProgress,setAbsencesBarProgress] =useState()
+    const [vacationsBarText,setVacationsBarText] =useState()
+    const [vacationsBarProgress,setVacationsBarProgress] =useState()
+    const [assistsBarText,setAssistsBarText] =useState()
+    const [assistsBarProgress,setAssistsBarProgress] =useState()
+    const [receiptBarText,setReceiptsBarText] =useState()
+    const [receiptBarProgress,setReceiptsBarProgress] =useState()
+    const [paymentsBarText,setPaymentsBarText] =useState()
+    const [paymentsBarProgress,setPaymentsBarProgress] =useState()
+    const [informationBarText,setInformationBarText] =useState()
+    const [informationBarProgress,setInformationBarProgress] =useState()
+
 
     const handleSector = e => {
         e.preventDefault()
@@ -51,85 +74,327 @@ function App() {
         e.preventDefault();
         setDays(parseInt(e.target.value))
     }
+    function daysBar(data) {
+        if (data >= 4) {
+            setDayBarText("altamente digital")
+            setDayBarProgress("success")
+        } else {
+            if (data >= 3) {
+                setDayBarText("arriba del promedio")
+                setDayBarProgress("info")
+            } else {
+                if (data >= 2) {
+                    setDayBarText("promedio")
+                    setDayBarProgress("warning")
+                } else {
+                    if (data >= 0) {
+                        setDayBarText("debajo del promedio")
+                        setDayBarProgress("danger")
+                    }
+                }
+            }
+        }
+    }
+    useEffect(()=> {
+        daysBar(days)
+    },[days])
+
     const handleIncidences = e => {
         e.preventDefault();
         setIncidences(parseInt(e.target.value))
     }
+    function incidencesBar(data) {
+        if (data >= 4) {
+            setIncidencesBarText("altamente digital")
+            setIncidencesBarProgress("success")
+        } else {
+            if (data >= 3) {
+                setIncidencesBarText("arriba del promedio")
+                setIncidencesBarProgress("info")
+            } else {
+                if (data >= 2) {
+                    setIncidencesBarText("promedio")
+                    setIncidencesBarProgress("warning")
+                } else {
+                    if (data >= 0) {
+                        setIncidencesBarText("debajo del promedio")
+                        setIncidencesBarProgress("danger")
+                    }
+                }
+            }
+        }
+    }
+    useEffect(()=> {
+        incidencesBar(incidences)
+    },[incidences])
+
     const handlePayRoll = e => {
         e.preventDefault();
         setPayroll(parseInt(e.target.value))
     }
+    function payRollBar(data) {
+        if (data >= 4) {
+            setPayRollBarText("altamente digital")
+            setPayRollBarProgress("success")
+        } else {
+            if (data >= 3) {
+                setPayRollBarText("arriba del promedio")
+                setPayRollBarProgress("info")
+            } else {
+                if (data >= 2) {
+                    setPayRollBarText("promedio")
+                    setPayRollBarProgress("warning")
+                } else {
+                    if (data >= 0) {
+                        setPayRollBarText("debajo del promedio")
+                        setPayRollBarProgress("danger")
+                    }
+                }
+            }
+        }
+    }
+    useEffect(()=> {
+        payRollBar(payroll)
+    },[payroll])
+
     const handleTaxes = e => {
         e.preventDefault();
         setTaxes(parseInt(e.target.value))
     }
+    function taxesBar (data) {
+        if (data >= 4) {
+            setTaxesBarText("altamente digital")
+            setTaxesBarProgress("success")
+        } else {
+            if (data >= 3) {
+                setTaxesBarText("arriba del promedio")
+                setTaxesBarProgress("info")
+            } else {
+                if (data >= 2) {
+                    setTaxesBarText("promedio")
+                    setTaxesBarProgress("warning")
+                } else {
+                    if (data >= 0) {
+                        setTaxesBarText("debajo del promedio")
+                        setTaxesBarProgress("danger")
+                    }
+                }
+            }
+        }
+    }
+    useEffect(()=> {
+        taxesBar(taxes)
+    },[taxes])
+
     const handleTaxDeductions = e => {
         e.preventDefault();
         setTaxDeductions(parseInt(e.target.value))
     }
+    function taxDeducitonBar(data) {
+        if (data >= 4) {
+            setTaxDeductionBarText("altamente digital")
+            setTaxDeductionBarProgress("success")
+        } else {
+            if (data >= 3) {
+                setTaxDeductionBarText("arriba del promedio")
+                setTaxDeductionBarProgress("info")
+            } else {
+                if (data >= 2) {
+                    setTaxDeductionBarText("promedio")
+                    setTaxDeductionBarProgress("warning")
+                } else {
+                    if (data >= 0) {
+                        setTaxDeductionBarText("debajo del promedio")
+                        setTaxDeductionBarProgress("danger")
+                    }
+                }
+            }
+        }
+    }
+    useEffect(()=> {
+        taxDeducitonBar(taxDeductions)
+    },[taxDeductions])
+
     const handleAbsences = e => {
         e.preventDefault();
         setAbsences(parseInt(e.target.value))
     }
+    function absencesBar(data) {
+        if (data >= 4) {
+            setAbsencesBarText("altamente digital")
+            setAbsencesBarProgress("success")
+        } else {
+            if (data >= 3) {
+                setAbsencesBarText("arriba del promedio")
+                setAbsencesBarProgress("info")
+            } else {
+                if (data >= 2) {
+                    setAbsencesBarText("promedio")
+                    setAbsencesBarProgress("warning")
+                } else {
+                    if (data >= 0) {
+                        setAbsencesBarText("debajo del promedio")
+                        setAbsencesBarProgress("danger")
+                    }
+                }
+            }
+        }
+    }
+    useEffect(()=> {
+        absencesBar(absences)
+    },[absences])
+
     const handleVacations = e => {
         e.preventDefault();
         setVacations(parseInt(e.target.value))
     }
+    function vacatiosnBar(data) {
+        if (data >= 4) {
+            setVacationsBarText("altamente digital")
+            setVacationsBarProgress("success")
+        } else {
+            if (data >= 3) {
+                setVacationsBarText("arriba del promedio")
+                setVacationsBarProgress("info")
+            } else {
+                if (data >= 2) {
+                    setVacationsBarText("promedio")
+                    setVacationsBarProgress("warning")
+                } else {
+                    if (data >= 0) {
+                        setVacationsBarText("debajo del promedio")
+                        setVacationsBarProgress("danger")
+                    }
+                }
+            }
+        }
+    }
+    useEffect(()=> {
+        vacatiosnBar(vacations)
+    },[vacations])
+
     const handleAssists = e => {
         e.preventDefault();
         setAssist(parseInt(e.target.value))
     }
+    function assistsBar(data) {
+        if (data >= 4) {
+            setAssistsBarText("altamente digital")
+            setAssistsBarProgress("success")
+        } else {
+            if (data >= 3) {
+                setAssistsBarText("arriba del promedio")
+                setAssistsBarProgress("info")
+            } else {
+                if (data >= 2) {
+                    setAssistsBarText("promedio")
+                    setAssistsBarProgress("warning")
+                } else {
+                    if (data >= 0) {
+                        setAssistsBarText("debajo del promedio")
+                        setAssistsBarProgress("danger")
+                    }
+                }
+            }
+        }
+    }
+    useEffect(()=> {
+        assistsBar(assist)
+    },[assist])
+
     const handleReceipts = e => {
         e.preventDefault();
         setReceipts(parseInt(e.target.value))
     }
+    function receiptsBar(data) {
+        if (data >= 4) {
+            setReceiptsBarText("altamente digital")
+            setReceiptsBarProgress("success")
+        } else {
+            if (data >= 3) {
+                setReceiptsBarText("arriba del promedio")
+                setReceiptsBarProgress("info")
+            } else {
+                if (data >= 2) {
+                    setReceiptsBarText("promedio")
+                    setReceiptsBarProgress("warning")
+                } else {
+                    if (data >= 0) {
+                        setReceiptsBarText("debajo del promedio")
+                        setReceiptsBarProgress("danger")
+                    }
+                }
+            }
+        }
+    }
+    useEffect(()=> {
+        receiptsBar(receipts)
+    },[receipts])
+
     const handlePayments = e => {
         e.preventDefault();
         setPayments(parseInt(e.target.value))
     }
+    function paymentsBar(data) {
+        if (data >= 4) {
+            setPaymentsBarText("altamente digital")
+            setPaymentsBarProgress("success")
+        } else {
+            if (data >= 3) {
+                setPaymentsBarText("arriba del promedio")
+                setPaymentsBarProgress("info")
+            } else {
+                if (data >= 2) {
+                    setPaymentsBarText("promedio")
+                    setPaymentsBarProgress("warning")
+                } else {
+                    if (data >= 0) {
+                        setPaymentsBarText("debajo del promedio")
+                        setPaymentsBarProgress("danger")
+                    }
+                }
+            }
+        }
+    }
+    useEffect(()=> {
+        paymentsBar(payments)
+    },[payments])
+
     const handleInformation = e => {
         e.preventDefault();
         setInformation(parseInt(e.target.value))
     }
-
+    function informationBar(data) {
+        if (data >= 4) {
+            setInformationBarText("altamente digital")
+            setInformationBarProgress("success")
+        } else {
+            if (data >= 3) {
+                setInformationBarText("arriba del promedio")
+                setInformationBarProgress("info")
+            } else {
+                if (data >= 2) {
+                    setInformationBarText("promedio")
+                    setInformationBarProgress("warning")
+                } else {
+                    if (data >= 0) {
+                        setInformationBarText("debajo del promedio")
+                        setInformationBarProgress("danger")
+                    }
+                }
+            }
+        }
+    }
+    useEffect(()=> {
+        informationBar(information)
+    },[information])
+// suma
     const suma = () => {
         let data = (days + incidences + payroll + taxes + taxDeductions + absences + vacations + assist + receipts + payments + information) / 11
         console.log(data)
         return setTotal(parseInt(data))
     }
-
-    const next = () => {
-        if (page1 === false) {
-            setPage1(true)
-            setPage2(false)
-            setBackButton(false)
-        } else {
-            if (page2 === false) {
-                setPage2(true)
-                setPage3(false)
-                setNextButton(true)
-                setSendButton(false)
-                // setBackButton(false)
-            }
-        }
-
-    }
-    const back = () => {
-        if (page3 === false) {
-            setSendButton(true)
-            setNextButton(false)
-            setPage3(true)
-            setPage2(false)
-        } else {
-            if (page2 === false) {
-                setPage2(true)
-                setPage1(false)
-                setBackButton(true)
-            }
-        }
-
-    }
-
+    //function for set text and progress to progress Bar Total result
     function totals(data) {
         if (data >= 4) {
             setText("altamente digital")
@@ -151,13 +416,46 @@ function App() {
             }
         }
     }
-
+//Effect for set total result
     useEffect(() => {
         totals(total)
         console.log(text)
     }, [total])
 
 
+// Next Button
+    const next = () => {
+        if (page1 === false) {
+            setPage1(true)
+            setPage2(false)
+            setBackButton(false)
+        } else {
+            if (page2 === false) {
+                setPage2(true)
+                setPage3(false)
+                setNextButton(true)
+                setSendButton(false)
+                // setBackButton(false)
+            }
+        }
+
+    }
+    //BackButton
+    const back = () => {
+        if (page3 === false) {
+            setSendButton(true)
+            setNextButton(false)
+            setPage3(true)
+            setPage2(false)
+        } else {
+            if (page2 === false) {
+                setPage2(true)
+                setPage1(false)
+                setBackButton(true)
+            }
+        }
+
+    }
     // 4 = altamente digital
     // 3 = arriba del promedio
     // 2 =promedio
@@ -359,12 +657,65 @@ function App() {
                     </Form>
                 </div>
                 <div style={{paddingTop: '30px'}} className={'container'}>
-                    <h1>RESULTADOS</h1>
-                    <h4> Tu puntuación es: {total} </h4>
-                    <h4> Tu Empresa es: {text}</h4>
-                    <ProgressBar>
-                        <ProgressBar label={text} striped variant={progress} now={total * 25} key={1}/>
-                    </ProgressBar>
+                    <div>
+                        <h1>RESULTADOS</h1>
+                        {/*<h4>Empresa : "Empresa"</h4>*/}
+                        {/*<h4>Centros de Trabajo:"WorkCenter"</h4>*/}
+                        {/*<h4>Empleados:</h4>*/}
+                        {/*<h4>Personal RRHH:</h4>*/}
+                        {/*<h4>Personal de RRHH para nominas: </h4>*/}
+                        {/*days + incidences + payroll + taxes + taxDeductions + absences + vacations + assist + receipts + payments + information*/}
+                        <h4>Dias para preparar la nomina:</h4>
+                        <ProgressBar>
+                            <ProgressBar label={dayBarText} striped variant={dayBarProgress} now={days * 25} key={1}/>
+                        </ProgressBar>
+                        <h4>Incidencias: </h4>
+                        <ProgressBar>
+                            <ProgressBar label={incidencesBarText} striped variant={incidencesBarProgress} now={incidences * 25} key={1}/>
+                        </ProgressBar>
+                        <h4>Calculo y emisión de nóminas: </h4>
+                        <ProgressBar>
+                            <ProgressBar label={payRollBarText} striped variant={payRollBarProgress} now={payroll * 25} key={1}/>
+                        </ProgressBar>
+                        <h4>Gestión de impuestos: </h4>
+                        <ProgressBar>
+                            <ProgressBar label={taxesBarText} striped variant={taxesBarProgress} now={taxes * 25} key={1}/>
+                        </ProgressBar>
+                        <h4>Deducciones: </h4>
+                        <ProgressBar>
+                            <ProgressBar label={taxDeductionBarText} striped variant={taxDeductionBarProgress} now={taxDeductions * 25} key={1}/>
+                        </ProgressBar>
+                        <h4>Ausencias: </h4>
+                        <ProgressBar>
+                            <ProgressBar label={absencesBarText} striped variant={absencesBarProgress} now={absences * 25} key={1}/>
+                        </ProgressBar>
+                        <h4>Vacaciones: </h4>
+                        <ProgressBar>
+                            <ProgressBar label={vacationsBarText} striped variant={vacationsBarProgress} now={vacations * 25} key={1}/>
+                        </ProgressBar>
+                        <h4>Asistencia: </h4>
+                        <ProgressBar>
+                            <ProgressBar label={assistsBarText} striped variant={assistsBarProgress} now={assist * 25} key={1}/>
+                        </ProgressBar>
+                        <h4>Timbrado y emisión de recibos: </h4>
+                        <ProgressBar>
+                            <ProgressBar label={receiptBarText} striped variant={receiptBarProgress} now={receipts * 25} key={1}/>
+                        </ProgressBar>
+                        <h4>Transferencia de pagos: </h4>
+                        <ProgressBar>
+                            <ProgressBar label={paymentsBarText} striped variant={paymentsBarProgress} now={payments * 25} key={1}/>
+                        </ProgressBar>
+                        <h4>¿Cuál es la forma en la que sus colaboradores consultan su información laboral?: </h4>
+                        <ProgressBar>
+                            <ProgressBar label={informationBarText} striped variant={informationBarProgress} now={information * 25} key={1}/>
+                        </ProgressBar>
+                        <h2> Tu puntuación es: {total} </h2>
+                        <h2> Tu Empresa es: {text}</h2>
+                        <ProgressBar>
+                            <ProgressBar label={text} striped variant={'success'} now={total * 25} key={1}/>
+                        </ProgressBar>
+                    </div>
+
                 </div>
             </div>
         </div>
