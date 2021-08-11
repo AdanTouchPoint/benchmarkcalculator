@@ -50,7 +50,7 @@ function App() {
     const [paymentsBarProgress,setPaymentsBarProgress] =useState()
     const [informationBarText,setInformationBarText] =useState()
     const [informationBarProgress,setInformationBarProgress] =useState()
-
+    const [showResult,setShowResult] = useState(true)
 
     const handleSector = e => {
         e.preventDefault()
@@ -391,6 +391,7 @@ function App() {
 // suma
     const suma = () => {
         let data = (days + incidences + payroll + taxes + taxDeductions + absences + vacations + assist + receipts + payments + information) / 11
+        setShowResult(false)
         console.log(data)
         return setTotal(parseInt(data))
     }
@@ -463,38 +464,38 @@ function App() {
 
     return (
         <div className="container" style={{}}>
-            <div style={{display: 'flex', justifyContent: 'center'}}>
-                <div style={{paddingTop: '30px'}} className="container">
+            <div className= "form" style={{justifyContent: 'center'}}>
+                <div style={{paddingTop: '100px'}} className="container">
                     <Form>
                         <div hidden={page1}>
                             <Form.Group className="mb-3">
                                 <Form.Label>¿A que sector pertenece tu empresa? </Form.Label>
-                                <Form.Control onChange={handleSector} name={"sector"} type="text"/>
+                                <Form.Control  placeholder={'Introducir su respuesta'} onChange={handleSector} name={"sector"} type="text"/>
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label>¿Cuantos centros de trabajo tienes
                                     (oficinas,plantas,sucursales)? </Form.Label>
-                                <Form.Control onChange={handleWorkCenters} name={"workCenters"} type="number"/>
+                                <Form.Control placeholder={'Usar flechas para ingresar su respuesta'} onChange={handleWorkCenters} name={"workCenters"} type="number"/>
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label>¿Cuantos empleados tiene tu empresa de manera permanente (en
                                     nómina)? </Form.Label>
-                                <Form.Control onChange={handleEmployees} name={"employees"} type="number"/>
+                                <Form.Control  placeholder={'Usar flechas para ingresar su respuesta'} onChange={handleEmployees} name={"employees"} type="number"/>
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label>¿Cuantas personas conforman tu area de RRRHH? Solamente personal 100%
                                     dedicado? </Form.Label>
-                                <Form.Control onChange={handleRRHH} name={"RRHH"} type="number"/>
+                                <Form.Control  placeholder={'Usar flechas para ingresar su respuesta'} onChange={handleRRHH} name={"RRHH"} type="number"/>
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label>¿Cuántas personas de tu área de RRHH se involucran en la preparación de
                                     nómina? </Form.Label>
-                                <Form.Control type="number"/>
+                                <Form.Control  placeholder={'Usar flechas para ingresar su respuesta'} type="number"/>
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <Form.Label>¿Aproximadamente cuantos días dedicas a la preparación de nómina por
                                     quincena? </Form.Label>
-                                <Form.Control onChange={handleDays} name={"days"} as="select">
+                                <Form.Control  onChange={handleDays} name={"days"} as="select">
                                     <option>Selecciona una opcion...</option>
                                     <option value={5}>Menos de un día</option>
                                     <option value={4}>Una a dos días</option>
@@ -657,7 +658,7 @@ function App() {
                     </Form>
                 </div>
                 <div style={{paddingTop: '30px'}} className={'container'}>
-                    <div>
+                    <div hidden={showResult}>
                         <h1>RESULTADOS</h1>
                         {/*<h4>Empresa : "Empresa"</h4>*/}
                         {/*<h4>Centros de Trabajo:"WorkCenter"</h4>*/}
@@ -667,52 +668,52 @@ function App() {
                         {/*days + incidences + payroll + taxes + taxDeductions + absences + vacations + assist + receipts + payments + information*/}
                         <h4>Dias para preparar la nomina:</h4>
                         <ProgressBar>
-                            <ProgressBar label={dayBarText} striped variant={dayBarProgress} now={days * 25} key={1}/>
+                            <ProgressBar label={dayBarText} striped  now={days * 25} key={1}/>
                         </ProgressBar>
                         <h4>Incidencias: </h4>
                         <ProgressBar>
-                            <ProgressBar label={incidencesBarText} striped variant={incidencesBarProgress} now={incidences * 25} key={1}/>
+                            <ProgressBar label={incidencesBarText} striped now={incidences * 25} key={1}/>
                         </ProgressBar>
                         <h4>Calculo y emisión de nóminas: </h4>
                         <ProgressBar>
-                            <ProgressBar label={payRollBarText} striped variant={payRollBarProgress} now={payroll * 25} key={1}/>
+                            <ProgressBar label={payRollBarText} striped  now={payroll * 25} key={1}/>
                         </ProgressBar>
                         <h4>Gestión de impuestos: </h4>
                         <ProgressBar>
-                            <ProgressBar label={taxesBarText} striped variant={taxesBarProgress} now={taxes * 25} key={1}/>
+                            <ProgressBar label={taxesBarText} striped  now={taxes * 25} key={1}/>
                         </ProgressBar>
                         <h4>Deducciones: </h4>
                         <ProgressBar>
-                            <ProgressBar label={taxDeductionBarText} striped variant={taxDeductionBarProgress} now={taxDeductions * 25} key={1}/>
+                            <ProgressBar label={taxDeductionBarText} striped  now={taxDeductions * 25} key={1}/>
                         </ProgressBar>
                         <h4>Ausencias: </h4>
                         <ProgressBar>
-                            <ProgressBar label={absencesBarText} striped variant={absencesBarProgress} now={absences * 25} key={1}/>
+                            <ProgressBar label={absencesBarText} striped  now={absences * 25} key={1}/>
                         </ProgressBar>
                         <h4>Vacaciones: </h4>
                         <ProgressBar>
-                            <ProgressBar label={vacationsBarText} striped variant={vacationsBarProgress} now={vacations * 25} key={1}/>
+                            <ProgressBar label={vacationsBarText} striped now={vacations * 25} key={1}/>
                         </ProgressBar>
                         <h4>Asistencia: </h4>
                         <ProgressBar>
-                            <ProgressBar label={assistsBarText} striped variant={assistsBarProgress} now={assist * 25} key={1}/>
+                            <ProgressBar label={assistsBarText} striped now={assist * 25} key={1}/>
                         </ProgressBar>
                         <h4>Timbrado y emisión de recibos: </h4>
                         <ProgressBar>
-                            <ProgressBar label={receiptBarText} striped variant={receiptBarProgress} now={receipts * 25} key={1}/>
+                            <ProgressBar label={receiptBarText} striped now={receipts * 25} key={1}/>
                         </ProgressBar>
                         <h4>Transferencia de pagos: </h4>
                         <ProgressBar>
-                            <ProgressBar label={paymentsBarText} striped variant={paymentsBarProgress} now={payments * 25} key={1}/>
+                            <ProgressBar label={paymentsBarText} striped  now={payments * 25} key={1}/>
                         </ProgressBar>
                         <h4>¿Cuál es la forma en la que sus colaboradores consultan su información laboral?: </h4>
                         <ProgressBar>
-                            <ProgressBar label={informationBarText} striped variant={informationBarProgress} now={information * 25} key={1}/>
+                            <ProgressBar label={informationBarText} striped  now={information * 25} key={1}/>
                         </ProgressBar>
                         <h2> Tu puntuación es: {total} </h2>
                         <h2> Tu Empresa es: {text}</h2>
                         <ProgressBar>
-                            <ProgressBar label={text} striped variant={'success'} now={total * 25} key={1}/>
+                            <ProgressBar label={text} animated striped  now={total * 25} key={1}/>
                         </ProgressBar>
                     </div>
 
