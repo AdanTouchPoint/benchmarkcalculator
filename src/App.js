@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/cjs/Button";
 import ProgressBar from "react-bootstrap/cjs/ProgressBar";
-
+import logo from "./logo web.png"
 function App() {
     const [sendButton, setSendButton] = useState(true)
     const [backButton, setBackButton] = useState(true)
@@ -463,7 +463,11 @@ function App() {
     // 1 = deabajo del promedio
 
     return (
-        <div className="container" style={{}}>
+        <div className="container">
+            <div >
+                <img style={{ paddingLeft:'30px', marginTop: '30px', maxHeight: '150px', maxWidth: '200px', height: '100%', width: '150px'}}
+                     src={logo}/>
+            </div>
             <div className= "form" style={{justifyContent: 'center'}}>
                 <div style={{paddingTop: '100px'}} className="container">
                     <Form>
